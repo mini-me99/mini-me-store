@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Me</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a onclick="showTab('home')">Home</a>
+        <a onclick="showTab('shop')">Shop</a>
+        <a onclick="showTab('orders')">Orders</a>
+        <a onclick="showTab('checkout')">Checkout</a>
+    </div>
+    
+    <div id="home" class="container active">
+        <img src="IMG-20250312-WA0072.jpg" alt="Mini-Me Logo" class="logo">
+        <h1>Welcome to Mini-Me</h1>
+        <p>Your one-stop shop for baby products!</p>
+        <img src="IMG-20250312-WA0046.jpg" alt="Home Page Image" class="home-img">
+    </div>
+    
+    <div id="shop" class="container">
+        <h2>Shop</h2>
+        <p>Browse our collection</p>
+        <div class="shop">
+            <h2>Our Products</h2>
+            <div class="product-gallery">
+                <img src="IMG-20250312-WA0046.jpg" alt="Product 1" onclick="openModal(this.src)">
+                <img src="IMG-20250312-WA0072.jpg" alt="Product 2" onclick="openModal(this.src)">
+                <a href="https://imgur.com/a/9saOC9h" target="_blank">View All Products</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="orders" class="container">
+        <h2>Orders</h2>
+        <form onsubmit="submitOrder(); return false;">
+            <table id="orderTable">
+                <tr>
+                    <th>الكود</th>
+                    <th>الكميه</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="code[]"></td>
+                    <td><input type="text" name="quantity[]"></td>
+                </tr>
+            </table>
+            <button type="button" onclick="addRow()">Add More</button>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+    
+    <div id="checkout" class="container">
+        <h2>Checkout</h2>
+        <form action="https://formspree.io/f/xqapknen" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="text" name="number" placeholder="Phone Number" required><br>
+            <input type="text" name="location" placeholder="Your Location" required><br>
+            <textarea id="orderSummary" name="orderDetails" placeholder="Your Order" readonly required></textarea><br>
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImg" class="modal-content">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
