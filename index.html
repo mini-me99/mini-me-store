@@ -10,7 +10,6 @@
     <div class="navbar">
         <a onclick="showTab('home')">Home</a>
         <a onclick="showTab('shop')">Shop</a>
-        <a onclick="showTab('orders')">Orders</a>
         <a onclick="showTab('checkout')">Checkout</a>
     </div>
     
@@ -20,18 +19,7 @@
         <p>Your one-stop shop for baby products!</p>
         <img src="IMG-20250312-WA0046.jpg" alt="Home Page Image" class="home-img">
     </div>
-    
-    <div id="shop" class="container">
-        <h2>Shop</h2>
-        <p>Browse our collection</p>
-        <div class="shop">
-            <h2>Our Products</h2>
-            <div class="product-gallery">
-                <img src="IMG-20250312-WA0046.jpg" alt="Product 1" onclick="openModal(this.src)">
-                <img src="IMG-20250312-WA0072.jpg" alt="Product 2" onclick="openModal(this.src)">
-                <a href="https://drive.google.com/drive/folders/1HjgJuanYYIMto9izDCLqlZgea5Vli7o0?usp=sharing" target="_blank">View All Products</a>
-            </div>
-        </div>
+
     </div>
     
     <div id="orders" class="container">
@@ -43,8 +31,8 @@
                     <th>الكميه</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="code[]"></td>
-                    <td><input type="text" name="quantity[]"></td>
+                    <td><input type="text" name="كود[]"></td>
+                    <td><input type="text" name="عدد[]"></td>
                 </tr>
             </table>
             <button type="button" onclick="addRow()">Add More</button>
@@ -55,9 +43,11 @@
     <div id="checkout" class="container">
         <h2>Checkout</h2>
         <form action="https://formspree.io/f/xqapknen" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required><br>
-            <input type="text" name="number" placeholder="Phone Number" required><br>
-            <input type="text" name="location" placeholder="Your Location" required><br>
+            <input type="text" name="name" placeholder="الاسم" required><br>
+            <input type="text" name="store name" placeholder="اسم المحل" required><br>
+            <input type="text" name="number" placeholder="رقم التليفون" required><br>
+            <input type="text" name="location" placeholder="العنوان" required><br>
+            <input type="text" name="deposit" placeholder="العربون" required><br>
             <textarea id="orderSummary" name="orderDetails" placeholder="Your Order" readonly required></textarea><br>
             <button type="submit">Submit Order</button>
         </form>
